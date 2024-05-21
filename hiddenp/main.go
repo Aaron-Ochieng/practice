@@ -18,9 +18,9 @@ func hiddenp(a, b string) string {
 	}
 
 	if s == a {
-		return "1\n"
+		return "1"
 	}
-	return "0\n"
+	return "0"
 }
 
 func main() {
@@ -29,5 +29,5 @@ func main() {
 		return
 	}
 	res := hiddenp(args[0], args[1])
-	fmt.Print(res)
+	fmt.Println(res)
 }
