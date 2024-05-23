@@ -2,6 +2,10 @@ package main
 
 func main() {
 	s := "helloiEAthura"
+	//s := "kura fpl"
+	//s := "fpl kura fpl"
+	//s := "kura fpl"
+	
 	result := rotateVowels(s)
 	println(s)
 	println(result)
@@ -16,7 +20,7 @@ func rotateVowels(s string) string {
 	}
 	index := len(sb) - 1
 
-	for i := 0; i <= mid; i++ {
+	for i := 0; i <= index; i++ {
 		if isVowel(sb[i]) {
 			for j := index; j > i; j-- {
 				if isVowel(sb[j]) {
@@ -24,7 +28,6 @@ func rotateVowels(s string) string {
 					index = j - 1
 					break
 				}
-				index--
 			}
 		}
 	}
