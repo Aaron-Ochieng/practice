@@ -1,14 +1,19 @@
 package main
 
 func main() {
-	s := "helloiEAthura"
-	//s := "kura fpl"
-	//s := "fpl kura fpl"
-	//s := "kura fpl"
-	
-	result := rotateVowels(s)
-	println(s)
-	println(result)
+	words := []string{
+		"helloiEAthura",
+		"kura fpl",
+		"fpl kura fpl",
+		"kura fpl",
+	}
+
+	for _, word := range words {
+		result := rotateVowels(word)
+		println(word)
+		println(result)
+		println()
+	}
 }
 
 func rotateVowels(s string) string {
