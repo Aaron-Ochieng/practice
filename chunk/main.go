@@ -25,6 +25,7 @@ func Chunk(slice []int, size int) {
 		chunks = append(chunks, chunk)
 	}
 	fmt.Println(chunks)
+
 }
 
 func main() {
