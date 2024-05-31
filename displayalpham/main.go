@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"github.com/01-edu/z01"
+)
 
 func main() {
 	arr := [][]rune{}
@@ -22,19 +24,17 @@ func main() {
 			arr = append(arr, ax)
 		}
 	}
-	fmt.Println(arr)
 
-	
 	for i := 0; i < len(arr); i++ {
 		if (i+1)%2 == 0 {
 			for _, rn := range arr[i] {
-				fmt.Print(string(rn - 32))
+				z01.PrintRune(rn - 32)
 			}
 		} else {
 			for _, rn := range arr[i] {
-				fmt.Print(string(rn))
+				z01.PrintRune(rn)
 			}
 		}
 	}
-	fmt.Print("\n")
+	z01.PrintRune('\n')
 }
