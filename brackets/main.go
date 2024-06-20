@@ -5,36 +5,39 @@ import (
 	"os"
 )
 
-func isCorrectlyBracketed(s string) bool {
-	stack := []rune{}
-	brackets := map[rune]rune{
-		')': '(',
-		']': '[',
-		'}': '{',
-	}
+func correctlyFormatted(s string) {
+	extractedbrackets := ""
 
-	for _, r := range s {
-		switch r {
-		case '(', '[', '{':
-			stack = append(stack, r)
-		case ')', ']', '}':
-			if len(stack) == 0 || brackets[r] != stack[len(stack)-1] {
-				return false
-			}
-			stack = stack[:len(stack)-1]
+	stack := []rune{}
+	for _, char := range s {
+		if char == '[' || char == ']' || char == '(' || char == ')' || char == '{' || char == '}' {
+			extractedbrackets += string(char)
 		}
 	}
+	fmt.Println(extractedbrackets)
 
-	return len(stack) == 0
+	for _, char := range extractedbrackets {
+		if char == '[' || char == '{' || char == '(' {
+			stack = append(stack, char)
+		} else if len(stack) > 0 {
+			if (char == ']' && stack[len(stack)-1] == '[') || (char == '}' && stack[len(stack)-1] == '{') || (char == ')' && stack[len(stack)-1] == '(') {
+				stack = stack[:len(stack)-1]
+			} else {
+				break
+			}
+		}
+	}
+	if len(stack) == 0 {
+		fmt.Println("OK")
+	} else {
+		fmt.Println("Error")
+	}
 }
 
 func main() {
-	for _, arg := range os.Args[1:] {
-		if isCorrectlyBracketed(arg) {
-			fmt.Println("OK")
-		} else {
-			fmt.Println("Error")
-		}
+	args := os.Args[1:]
+	if len(args) != 1 {
+		fmt.Println("Error")
 	}
+	correctlyFormatted(args[0])
 }
-
