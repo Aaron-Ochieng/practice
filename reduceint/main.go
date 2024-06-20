@@ -3,6 +3,10 @@ package main
 import "fmt"
 
 func ReduceInt(a []int, f func(int, int) int) {
+	res := a[0]
+	for _, val := range a[1:] {
+		res = f(res, val)
+	}
 	fmt.Println(f(a[0], a[1]))
 }
 
